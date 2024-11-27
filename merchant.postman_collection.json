@@ -1,0 +1,550 @@
+{
+	"info": {
+		"_postman_id": "5d0557bc-cf9d-4396-939e-2380e10b3f09",
+		"name": "merchant",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "40034968"
+	},
+	"item": [
+		{
+			"name": "createuser",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"name\": \"John Doe\",\r\n  \"email\": \"john.doe@example.com\",\r\n  \"referralNo\": \"REF\" ,\r\n  \"store\": \"6746efe62db3ccf482da06af\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:4300/v1/store-user/usercreate",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4300",
+					"path": [
+						"v1",
+						"store-user",
+						"usercreate"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get User",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"userId\":\"6746c9497e52aaea28619912\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:4300/v1/store-user/store/user",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4300",
+					"path": [
+						"v1",
+						"store-user",
+						"store",
+						"user"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "updateUser",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"storeUserId\":\"6746c9497e52aaea28619912\",\r\n    \"name\":\"jayaprakash\",\r\n    \"email\":\"jayaprakash@gmail.com\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:4300/v1/store-user/store/user/:storeUserId",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4300",
+					"path": [
+						"v1",
+						"store-user",
+						"store",
+						"user",
+						":storeUserId"
+					],
+					"variable": [
+						{
+							"key": "storeUserId",
+							"value": ""
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "addproduct",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"name\": \"Bluetooth Headphones Z1\",\r\n  \"description\": \"Wireless over-ear Bluetooth headphones with noise cancellation.\",\r\n  \"category\": \"6746e7c6a6520cecdd90220b\",  // Replace with a valid ObjectId for ProductCategory\r\n  \"discountType\": 1,  // 1 - Percentage\r\n  \"discountValue\": 15,  // 15% discount\r\n  \"originalPrice\": 5000,  // Original price\r\n  \"price\": 4250,  // After 15% discount\r\n  \"stock\": 200,  // 200 units available\r\n  \"unit\": 1,  // 1 - One unit\r\n  \"unitType\": 1,  // 1 - One unit type\r\n  \"status\": 2,  // 2 - Inactive (product not available temporarily)\r\n  \"images\": [\r\n    \"https://example.com/images/headphones1.jpg\",\r\n    \"https://example.com/images/headphones2.jpg\"\r\n  ],\r\n  \"inventory\": [\r\n    {\r\n      \"type\": 1,  // 1 - Credit, 2 - Debit\r\n      \"referenceType\": 1,  // 1 - Stock in, 2 - Stock out\r\n      \"quantity\": 200,  // Added 200 units\r\n      \"closingBalance\": 200  // Stock balance is 200\r\n   \r\n    }\r\n  ],\r\n  \"store\": \"6746ed80c5a30ddb69731aa7\"  // Replace with a valid ObjectId for Store\r\n}\r\n\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:4300/v1/store-user/store/products",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4300",
+					"path": [
+						"v1",
+						"store-user",
+						"store",
+						"products"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "addcategory",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": " {\r\n    \"name\": \"Fashion\",\r\n    \"description\": \"Stores that offer clothing, footwear, and fashion accessories.\",\r\n    \"status\": 2\r\n  }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:4300/v1/store-user/createCategory",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4300",
+					"path": [
+						"v1",
+						"store-user",
+						"createCategory"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "add store",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"name\": \"Luxury Fashion Hub\",\r\n  \"location\": [80.2785, 13.0878],  \r\n  \"category\": \"6746e7d0a6520cecdd90220d\",  \r\n  \"address\": {\r\n    \"line1\": \"789 Fashion Street\",\r\n    \"line2\": \"Opposite Mall of Chennai\",\r\n    \"state\": \"Tamil Nadu\",\r\n    \"pincode\": 600100,\r\n    \"country\": \"India\",\r\n    \"city\": \"Chennai\"\r\n  },\r\n  \"contactNo\": 8765432109,\r\n  \"dialCode\": 91,  \r\n  \"openingTime\": \"2024-11-01T10:00:00Z\",\r\n  \"closingTime\": \"2024-11-01T21:00:00Z\",\r\n  \"upi\": \"luxuryfashionhub@upi\",\r\n  \"payAtStoreCommission\": 4.5,  \r\n  \"ecommerceCommission\": 6.0,  \r\n  \"status\": 1,  \r\n  \"images\": [\r\n    \"https://example.com/images/store5.jpg\",\r\n    \"https://example.com/images/store6.jpg\"\r\n  ],\r\n  \"schedule\": [\r\n    {\r\n      \"day\": \"Friday\",\r\n      \"openingTime\": \"2024-11-01T10:00:00Z\",\r\n      \"closingTime\": \"2024-11-01T21:00:00Z\"\r\n    },\r\n    {\r\n      \"day\": \"Saturday\",\r\n      \"openingTime\": \"2024-11-01T10:00:00Z\",\r\n      \"closingTime\": \"2024-11-01T21:00:00Z\"\r\n    }\r\n  ]\r\n}\r\n\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:4300/v1/store-user/addstore",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4300",
+					"path": [
+						"v1",
+						"store-user",
+						"addstore"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getStoreDetails",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"storeId\":\"6746ed80c5a30ddb69731aa7\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:4300/v1/store-user/store",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4300",
+					"path": [
+						"v1",
+						"store-user",
+						"store"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "storelists",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"limit\":5,\r\n    \"pageNo\":1\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:4300/v1/store-user/store/list",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4300",
+					"path": [
+						"v1",
+						"store-user",
+						"store",
+						"list"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "updatestore",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"storeId\":\"6746efe62db3ccf482da06af\",\r\n    \"name\": \"Fresh Mart\",\r\n    \"location\": [-73.935242, 40.730610],\r\n    \"category\": \"6746e7a8a6520cecdd902209\",\r\n    \"address\": {\r\n       \"line1\": \"123 Main St\",\r\n       \"line2\": \"Apt 4B\",\r\n       \"state\": \"AP\",\r\n       \"pincode\": 517001,\r\n       \"country\": \"India\",\r\n       \"city\": \"chittoor\"\r\n    },\r\n    \"contactNo\": 9703979407,\r\n    \"dialCode\": 91,\r\n    \"openingTime\": \"2024-11-25T09:00:00Z\",\r\n    \"closingTime\": \"2024-11-25T21:00:00Z\",\r\n    \"images\": [\r\n    \"https://example.com/images/store1.jpg\",\r\n    \"https://example.com/images/store2.jpg\"\r\n    ],\r\n    \"schedule\": [\r\n    {\r\n      \"day\": \"Monday\",\r\n      \"openingTime\": \"2024-11-25T09:00:00Z\",\r\n      \"closingTime\": \"2024-11-25T21:00:00Z\"\r\n    },\r\n    {\r\n      \"day\": \"Tuesday\",\r\n      \"openingTime\": \"2024-11-25T09:00:00Z\",\r\n      \"closingTime\": \"2024-11-25T21:00:00Z\"\r\n    },\r\n    {\r\n      \"day\": \"Wednesday\",\r\n      \"openingTime\": \"2024-11-25T09:00:00Z\",\r\n      \"closingTime\": \"2024-11-25T21:00:00Z\"\r\n    }\r\n  ]\r\n}\r\n\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:4300/v1/store-user/updatestore",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4300",
+					"path": [
+						"v1",
+						"store-user",
+						"updatestore"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getCategories",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "\r\n{\r\n    \"limit\":5,\r\n    \"pageNo\":1\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:4300/v1/store-user/master/product-category/list",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4300",
+					"path": [
+						"v1",
+						"store-user",
+						"master",
+						"product-category",
+						"list"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "list all store products",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"limit\":5, \r\n    \"pageNo\":1,\r\n    \"category\":\"6746e7c6a6520cecdd90220b\",\r\n    \"name\":\"Smartphone X500\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:4300/v1/store-user/store/products/list",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4300",
+					"path": [
+						"v1",
+						"store-user",
+						"store",
+						"products",
+						"list"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "add stock",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"stock\":500\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:4300/v1/store-user/store/products/add-stock?id=6746fb0b8d66cd17e77392d1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4300",
+					"path": [
+						"v1",
+						"store-user",
+						"store",
+						"products",
+						"add-stock"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "6746fb0b8d66cd17e77392d1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "remove stock",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"stock\":6\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:4300/v1/store-user/store/products/remove-stock?id=6746f9f88d66cd17e77392c9",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4300",
+					"path": [
+						"v1",
+						"store-user",
+						"store",
+						"products",
+						"remove-stock"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "6746f9f88d66cd17e77392c9"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getInventoryList",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"limit\": 10,\r\n  \"order\": { \"createdAt\": \"desc\" },\r\n  \"pageNo\": 1,\r\n  \"storeProduct\": \"6746fad98d66cd17e77392ce\",  \r\n  \"type\": 1,  \r\n  \"referenceType\": 1 \r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:4300/v1/store-user/store/products/inventory/list",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4300",
+					"path": [
+						"v1",
+						"store-user",
+						"store",
+						"products",
+						"inventory",
+						"list"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "generateOtp",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"dialCode\":91, \r\n    \"contactNo\":7995642570\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:4300/v1/store-user/generateOtp",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4300",
+					"path": [
+						"v1",
+						"store-user",
+						"generateOtp"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "verify otp",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "device",
+						"value": "{ \"device\": \"deviceDetails\" }",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"dialCode\": 91,  \r\n    \"contactNo\": 7995642570, \r\n    \"otp\": 987516, \r\n    \"type\": 1  \r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:4300/v1/store-user/verifyOtp",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4300",
+					"path": [
+						"v1",
+						"store-user",
+						"verifyOtp"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "refreshtoken",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		}
+	]
+}
